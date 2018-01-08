@@ -37,7 +37,7 @@ public class DBController {
         ps.setString(5, gender);
         ps.setString(6, contactno);
         ps.setString(7, email);
-        ps.executeUpdate(sql);
+        ps.executeUpdate();
     }
     
     public void createSubject(String subjid,
@@ -45,13 +45,13 @@ public class DBController {
     		                  int units) throws Exception {
     	
     	sql = "insert into subject "
-    		+ "(subjid, title, day, units) "
+    		+ "(subjid, title, units) "
     	    + "values (?,?,?)";
     	ps = connection.prepareStatement(sql);
     	ps.setString(1, subjid);
     	ps.setString(2, title);
     	ps.setInt(3, units);
-    	ps.executeUpdate(sql);
+    	ps.executeUpdate();
     }
     
     public void createClass(String classcode,
@@ -66,20 +66,20 @@ public class DBController {
     	ps.setString(2, time);
     	ps.setString(3, day);
     	ps.setString(4, subjid);
-    	ps.executeUpdate(sql);
+    	ps.executeUpdate();
     }
     
     public void createEnroll(String classcode,
     		                 int idno, String datesubmitted) throws Exception {
     	
     	sql = "insert into enroll "
-            + "(classcode, idno, datesubmitted, subjid) "
+            + "(classcode, idno, datesubmitted) "
     		+ "values (?,?,?)";
     	ps = connection.prepareStatement(sql);
     	ps.setString(1, classcode);
     	ps.setInt(2, idno);
     	ps.setString(3, datesubmitted);
-    	ps.executeUpdate(sql);
+    	ps.executeUpdate();
     }
 	
     public void close() {

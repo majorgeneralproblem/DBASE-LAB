@@ -21,7 +21,7 @@ public class StudentRecords {
 	
 	//Date Objects
 	static DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-	static Date date;
+	static Date date = new Date();
 	
 	public static void main(String[] args){
 		try {
@@ -110,19 +110,19 @@ public class StudentRecords {
 		    	        System.out.println("+----------------------------+");
 		    	        System.out.println("|         Add Account        |");
 		    	        System.out.println("+----------------------------+");
-		    	        System.out.println("Enter ID number: ");
+		    	        System.out.print("Enter ID number: ");
 		    	        int idno = Integer.parseInt(kb.nextLine());
-		    	        System.out.println("Enter last name: ");
+		    	        System.out.print("Enter last name: ");
 		    	        String lname = kb.nextLine();
-		    	        System.out.println("Enter first name: ");
+		    	        System.out.print("Enter first name: ");
 		    	        String fname = kb.nextLine();
-		    	        System.out.println("Enter middle initial: ");
+		    	        System.out.print("Enter middle initial: ");
 		    	        String midInitial = kb.nextLine();
-		    	        System.out.println("Enter gender: ");
+		    	        System.out.print("Enter gender: ");
 		    	        String gender = kb.nextLine();
-		    	        System.out.println("Enter contact number: ");
+		    	        System.out.print("Enter contact number: ");
 		    	        String contactNumber = kb.nextLine();
-		    	        System.out.println("Enter email: ");
+		    	        System.out.print("Enter email: ");
 		    	        String email = kb.nextLine();
 		    	        
 		    	        //account creation
@@ -146,8 +146,10 @@ public class StudentRecords {
 		        		//To-Do
 		        		break;
 	        	}
-	        } catch (Exception e) {
-	        	e.printStackTrace();
+	        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e1) {
+	        	System.out.println("ID number already exists");
+	        } catch (Exception e2) {
+	        	e2.printStackTrace();
 	        }
 	        
 		} while (choice != 0);
@@ -183,11 +185,11 @@ public class StudentRecords {
 		    	        System.out.println("+----------------------------+");
 		    	        System.out.println("|         Add Subject        |");
 		    	        System.out.println("+----------------------------+");
-		    	        System.out.println("Enter subject ID: ");
+		    	        System.out.print("Enter subject ID: ");
 		    	        String id = kb.nextLine();
-		    	        System.out.println("Enter subject title: ");
+		    	        System.out.print("Enter subject title: ");
 		    	        String title = kb.nextLine();
-		    	        System.out.println("Enter number of units: ");
+		    	        System.out.print("Enter number of units: ");
 		    	        int units = Integer.parseInt(kb.nextLine());
 		    	        
 		    	        //subject creation
@@ -211,8 +213,10 @@ public class StudentRecords {
 		        		//To-Do
 		        		break;
 	        	}
-	        } catch (Exception e) {
-	        	e.printStackTrace();
+	        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e1) {
+	        	System.out.println("Subject ID already exists");
+	        } catch (Exception e2) {
+	        	e2.printStackTrace();
 	        }
 		} while (choice != 0);
 		
@@ -247,13 +251,13 @@ public class StudentRecords {
 		    	        System.out.println("+----------------------------+");
 		    	        System.out.println("|          Add Class         |");
 		    	        System.out.println("+----------------------------+");
-		    	        System.out.println("Enter class code: ");
+		    	        System.out.print("Enter class code: ");
 		    	        String code = kb.nextLine();
-		    	        System.out.println("Enter scheduled time: ");
+		    	        System.out.print("Enter scheduled time: ");
 		    	        String time = kb.nextLine();
-		    	        System.out.println("Enter scheduled days: ");
+		    	        System.out.print("Enter scheduled days: ");
 		    	        String days = kb.nextLine();
-		    	        System.out.println("Enter subject ID: ");
+		    	        System.out.print("Enter subject ID: ");
 		    	        String id = kb.nextLine();
 		    	        
 		    	        //subject creation
@@ -277,6 +281,8 @@ public class StudentRecords {
 		        		//To-Do
 		        		break;
 	        	}
+	        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e1) {
+	        	System.out.println("Class Code already exists");
 	        } catch (Exception e) {
 	        	e.printStackTrace();
 	        }
@@ -312,9 +318,9 @@ public class StudentRecords {
 		    	        System.out.println("+----------------------------+");
 		    	        System.out.println("|           Enroll           |");
 		    	        System.out.println("+----------------------------+");
-		    	        System.out.println("Enter class code: ");
+		    	        System.out.print("Enter class code: ");
 		    	        String code = kb.nextLine();
-		    	        System.out.println("Enter ID number: ");
+		    	        System.out.print("Enter ID number: ");
 		    	        int idno = Integer.parseInt(kb.nextLine());
 		    			date = new Date();
 		    	        
@@ -339,6 +345,8 @@ public class StudentRecords {
 		        		//To-Do
 		        		break;
 	        	}
+	        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e1) {
+	        	System.out.println("Entered information does not exists");
 	        } catch (Exception e) {
 	        	e.printStackTrace();
 	        }
