@@ -13,6 +13,8 @@ public class StudentRecords {
     // Database credentials
     static final String USERNAME = "root";
     static final String PASSWORD = "";
+    //Scanner Object
+	static Scanner kb = new Scanner(System.in);
 	
 	public static void main(String[] args){
 		try {
@@ -24,11 +26,11 @@ public class StudentRecords {
 	}
 
 	private static void mainMenu() {
-		Scanner kb = new Scanner(System.in);
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = new Date();
 		int choice = 0;
 		do {
+			System.out.println();
 			System.out.println("----------"+dateFormat.format(date)+"----------");
 			System.out.println("+----------------------------+");
 	        System.out.println("|   M E N U  O P T I O N S   |");
@@ -52,16 +54,16 @@ public class StudentRecords {
 	        
 	        switch (choice){
 	        	case 1:
-	        		accountsMenu(choice, kb);
+	        		accountsMenu(choice);
 	        		break;
 	        	case 2:
-	        		subjectsMenu(choice, kb);
+	        		subjectsMenu(choice);
 	        		break;
 	        	case 3:
-	        		classesMenu(choice, kb);
+	        		classesMenu(choice);
 	        		break;
 	        	case 4:
-	        		enrollmentMenu(choice, kb);
+	        		enrollmentMenu(choice);
 	        		break;
 	        }
 	        
@@ -69,8 +71,9 @@ public class StudentRecords {
         kb.close();
 	}
 	
-	public static void accountsMenu(int choice, Scanner kb){
+	public static void accountsMenu(int choice){
 		do {
+			System.out.println();
 			System.out.println("+----------------------------+");
 	        System.out.println("|   M E N U  O P T I O N S   |");
 	        System.out.println("+----------------------------+");
@@ -90,25 +93,49 @@ public class StudentRecords {
 		        	kb.nextLine();
 		        }
 	        } while(choice < 0 || choice > 4);
-	        switch (choice){
-	        	case 1:
-	        		//To-Do
-	        		break;
-	        	case 2:
-	        		//To-Do
-	        		break;
-	        	case 3:
-	        		//To-Do
-	        		break;
-	        	case 4:
-	        		//To-Do
-	        		break;
+	        
+	        try {
+	        	switch (choice){
+		        	case 1:
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("|         Add Account        |");
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("Enter ID number: ");
+		    	        int idno = Integer.parseInt(kb.nextLine());
+		    	        System.out.println("Enter last name: ");
+		    	        String lname = kb.nextLine();
+		    	        System.out.println("Enter first name: ");
+		    	        String fname = kb.nextLine();
+		    	        System.out.println("Enter middle initial: ");
+		    	        String midInitial = kb.nextLine();
+		    	        System.out.println("Enter gender: ");
+		    	        String gender = kb.nextLine();
+		    	        System.out.println("Enter contact number: ");
+		    	        String contactNumber = kb.nextLine();
+		    	        System.out.println("Enter email: ");
+		    	        String email = kb.nextLine();
+		        		controller.createAccount(idno, lname, fname, midInitial, gender, contactNumber, email);
+		        		break;
+		        	case 2:
+		        		//To-Do
+		        		break;
+		        	case 3:
+		        		//To-Do
+		        		break;
+		        	case 4:
+		        		//To-Do
+		        		break;
+	        	}
+	        } catch (Exception e) {
+	        	e.printStackTrace();
 	        }
+	        
 		} while (choice != 0);
 	}
 	
-	public static void subjectsMenu(int choice, Scanner kb){
+	public static void subjectsMenu(int choice){
 		do {
+			System.out.println();
 			System.out.println("+----------------------------+");
 	        System.out.println("|   M E N U  O P T I O N S   |");
 	        System.out.println("+----------------------------+");
@@ -128,26 +155,32 @@ public class StudentRecords {
 		        	kb.nextLine();
 		        }
 	        } while(choice < 0 || choice > 4);
-	        switch (choice){
-	        	case 1:
-	        		//To-Do
-	        		break;
-	        	case 2:
-	        		//To-Do
-	        		break;
-	        	case 3:
-	        		//To-Do
-	        		break;
-	        	case 4:
-	        		//To-Do
-	        		break;
+	        
+	        try {
+	        	switch (choice){
+		        	case 1:
+		        		//To-Do
+		        		break;
+		        	case 2:
+		        		//To-Do
+		        		break;
+		        	case 3:
+		        		//To-Do
+		        		break;
+		        	case 4:
+		        		//To-Do
+		        		break;
+	        	}
+	        } catch (Exception e) {
+	        	e.printStackTrace();
 	        }
 		} while (choice != 0);
 		
 	}
 	
-	public static void classesMenu(int choice, Scanner kb){
+	public static void classesMenu(int choice){
 		do {
+			System.out.println();
 			System.out.println("+----------------------------+");
 	        System.out.println("|   M E N U  O P T I O N S   |");
 	        System.out.println("+----------------------------+");
@@ -167,25 +200,30 @@ public class StudentRecords {
 		        	kb.nextLine();
 		        }
 	        } while(choice < 0 || choice > 4);
-	        switch (choice){
-	        	case 1:
-	        		//To-Do
-	        		break;
-	        	case 2:
-	        		//To-Do
-	        		break;
-	        	case 3:
-	        		//To-Do
-	        		break;
-	        	case 4:
-	        		//To-Do
-	        		break;
+	        try {
+	        	switch (choice){
+		        	case 1:
+		        		//To-Do
+		        		break;
+		        	case 2:
+		        		//To-Do
+		        		break;
+		        	case 3:
+		        		//To-Do
+		        		break;
+		        	case 4:
+		        		//To-Do
+		        		break;
+	        	}
+	        } catch (Exception e) {
+	        	e.printStackTrace();
 	        }
 		} while (choice != 0);
 	}
 	
-	public static void enrollmentMenu(int choice, Scanner kb){
+	public static void enrollmentMenu(int choice){
 		do {
+			System.out.println();
 			System.out.println("+----------------------------+");
 	        System.out.println("|   M E N U  O P T I O N S   |");
 	        System.out.println("+----------------------------+");
@@ -205,19 +243,23 @@ public class StudentRecords {
 		        	kb.nextLine();
 		        }
 	        } while(choice < 0 || choice > 4);
-	        switch (choice){
-	        	case 1:
-	        		//To-Do
-	        		break;
-	        	case 2:
-	        		//To-Do
-	        		break;
-	        	case 3:
-	        		//To-Do
-	        		break;
-	        	case 4:
-	        		//To-Do
-	        		break;
+	        try {
+	        	switch (choice){
+		        	case 1:
+		        		//To-Do
+		        		break;
+		        	case 2:
+		        		//To-Do
+		        		break;
+		        	case 3:
+		        		//To-Do
+		        		break;
+		        	case 4:
+		        		//To-Do
+		        		break;
+	        	}
+	        } catch (Exception e) {
+	        	e.printStackTrace();
 	        }
 		} while (choice != 0);
 	}
