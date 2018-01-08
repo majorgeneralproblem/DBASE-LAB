@@ -76,7 +76,7 @@ public class DBController {
     		                 String datesubmitted,
     		                 String subjid) throws Exception {
     	
-    	sql = "insert into class "
+    	sql = "insert into enroll "
             + "(classcode, idno, datesubmitted, subjid) "
     		+ "values (?,?,?,?)";
     	ps = connection.prepareStatement(sql);
