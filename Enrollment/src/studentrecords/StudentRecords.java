@@ -8,26 +8,32 @@ import java.util.Date;
 public class StudentRecords {
 	// DBController Object
 	static DBController controller = new DBController(); 
+	
 	// Database URL
     static final String DBASE_URL = "jdbc:mysql://localhost/records?autoReconnect=true&useSSL=false";
+    
     // Database credentials
     static final String USERNAME = "root";
     static final String PASSWORD = "";
+    
     //Scanner Object
 	static Scanner kb = new Scanner(System.in);
+	
+	//Date Objects
+	static DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+	static Date date;
 	
 	public static void main(String[] args){
 		try {
 		controller.dbaseConnect(DBASE_URL,USERNAME,PASSWORD);
 		mainMenu();
+		controller.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void mainMenu() {
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-		Date date = new Date();
 		int choice = 0;
 		do {
 			System.out.println();
@@ -56,12 +62,15 @@ public class StudentRecords {
 	        	case 1:
 	        		accountsMenu(choice);
 	        		break;
+	        		
 	        	case 2:
 	        		subjectsMenu(choice);
 	        		break;
+	        		
 	        	case 3:
 	        		classesMenu(choice);
 	        		break;
+	        		
 	        	case 4:
 	        		enrollmentMenu(choice);
 	        		break;
@@ -97,6 +106,7 @@ public class StudentRecords {
 	        try {
 	        	switch (choice){
 		        	case 1:
+		    	        //Prompt for input data
 		    	        System.out.println("+----------------------------+");
 		    	        System.out.println("|         Add Account        |");
 		    	        System.out.println("+----------------------------+");
@@ -114,14 +124,24 @@ public class StudentRecords {
 		    	        String contactNumber = kb.nextLine();
 		    	        System.out.println("Enter email: ");
 		    	        String email = kb.nextLine();
+		    	        
+		    	        //account creation
 		        		controller.createAccount(idno, lname, fname, midInitial, gender, contactNumber, email);
+		        		
+		        		//prompt for finished process
+		    	        System.out.println("-------Process Finished-------");
+		    	        System.out.println("Press enter to continue...");
+		    	        kb.nextLine();
 		        		break;
+		        		
 		        	case 2:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 3:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 4:
 		        		//To-Do
 		        		break;
@@ -159,14 +179,34 @@ public class StudentRecords {
 	        try {
 	        	switch (choice){
 		        	case 1:
-		        		//To-Do
+		        		//Prompt for input data
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("|         Add Subject        |");
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("Enter subject ID: ");
+		    	        String id = kb.nextLine();
+		    	        System.out.println("Enter subject title: ");
+		    	        String title = kb.nextLine();
+		    	        System.out.println("Enter number of units: ");
+		    	        int units = Integer.parseInt(kb.nextLine());
+		    	        
+		    	        //subject creation
+		        		controller.createSubject(id, title, units);
+		        		
+		        		//prompt for finished process
+		    	        System.out.println("-------Process Finished-------");
+		    	        System.out.println("Press enter to continue...");
+		    	        kb.nextLine();
 		        		break;
+		        		
 		        	case 2:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 3:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 4:
 		        		//To-Do
 		        		break;
@@ -203,14 +243,36 @@ public class StudentRecords {
 	        try {
 	        	switch (choice){
 		        	case 1:
-		        		//To-Do
+		        		//Prompt for input data
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("|          Add Class         |");
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("Enter class code: ");
+		    	        String code = kb.nextLine();
+		    	        System.out.println("Enter scheduled time: ");
+		    	        String time = kb.nextLine();
+		    	        System.out.println("Enter scheduled days: ");
+		    	        String days = kb.nextLine();
+		    	        System.out.println("Enter subject ID: ");
+		    	        String id = kb.nextLine();
+		    	        
+		    	        //subject creation
+		        		controller.createClass(code, time, days, id);
+		        		
+		        		//prompt for finished process
+		    	        System.out.println("-------Process Finished-------");
+		    	        System.out.println("Press enter to continue...");
+		    	        kb.nextLine();
 		        		break;
+		        		
 		        	case 2:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 3:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 4:
 		        		//To-Do
 		        		break;
@@ -246,14 +308,33 @@ public class StudentRecords {
 	        try {
 	        	switch (choice){
 		        	case 1:
-		        		//To-Do
+		        		//Prompt for input data
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("|           Enroll           |");
+		    	        System.out.println("+----------------------------+");
+		    	        System.out.println("Enter class code: ");
+		    	        String code = kb.nextLine();
+		    	        System.out.println("Enter ID number: ");
+		    	        int idno = Integer.parseInt(kb.nextLine());
+		    			date = new Date();
+		    	        
+		    	        //subject creation
+		        		controller.createEnroll(code, idno, dateFormat.format(date));
+		        		
+		        		//prompt for finished process
+		    	        System.out.println("-------Process Finished-------");
+		    	        System.out.println("Press enter to continue...");
+		    	        kb.nextLine();
 		        		break;
+		        		
 		        	case 2:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 3:
 		        		//To-Do
 		        		break;
+		        		
 		        	case 4:
 		        		//To-Do
 		        		break;
