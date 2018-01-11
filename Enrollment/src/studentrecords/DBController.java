@@ -81,6 +81,28 @@ public class DBController {
     	ps.setString(3, datesubmitted);
     	ps.executeUpdate();
     }
+    
+    //-------------------------------------------Delete------------------------------------------------//
+    public void deleteAccount(int idno) throws Exception { // Albert did this part
+    	sql = "delete FROM account WHERE idno = ?; ";
+    	ps = connection.prepareStatement(sql);
+    	 ps.setInt(1, idno);
+         ps.executeUpdate();
+    }
+    		    		
+    public void deleteSubject(String subjid)throws Exception { // Mitz Did this part
+    	sql = "delete FROM subjects WHERE subjid = ?; ";
+    	ps = connection.prepareStatement(sql);
+    	ps.setString(1, subjid);
+    	ps.executeUpdate(sql);
+    }
+    
+    public void deleteClass(String classcode) throws Exception { // Albert did this part
+    	sql = "delete FROM class where classcode = ?; ";
+    	ps = connection.prepareStatement(sql);
+    	ps.setString(1, classcode);
+    	ps.executeUpdate();
+    }
 	
     public void close() {
         try {
