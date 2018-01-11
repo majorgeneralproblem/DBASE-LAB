@@ -103,7 +103,19 @@ public class DBController {
     	ps.setString(1, classcode);
     	ps.executeUpdate();
     }
-	
+	//-------------------------Extra Feature---------------------------------------------//
+    //gets students in a class  (Henry)
+    public ResultSet getClassStudent(int classCode) throws Exception {
+        statement = connection.createStatement();
+        sql = "select * from students inner join enroll using(idno) where classcode="+(classCode)+";";
+        return statement.executeQuery(sql);
+   }
+    //get class per subject (Henry)
+    public ResultSet getSubjClass(int classCode) throws Exception{
+	statement = connection.createStatement();
+	sql = "select * from class inner join subject using(subjid) where subjid="+(classCode)+";";
+	return statement.executeQuery(sql);
+   }
     public void close() {
         try {
             if (resultSet != null) {
