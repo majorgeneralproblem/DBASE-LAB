@@ -1,0 +1,20 @@
+Please indicate your contribution to this project.
+(Follow the preceding format)
+
+Louel Lagasca - Added the "CREATE" function for the DBController.java program
+              - Revised the already established database (records.sql)
+              - Revised the main program (StudentRecords.java)
+              - Created new repository for the INC requirements
+
+Tyus Fablatin - Creates the old main program (StudentRecords.java).
+              - Creates the program (DBController.java).
+              - Added some Read Functionality in the DBController.java and in Studentrecords.java.
+
+Albert Baterina - Added 2 delete functions in DBController.java
+                - Created deleteStudent method in DBController
+                - Created deleteClass method in DBController
+               
+Mitz Mitchie  - Added deleteClass method in DBController.
+              - Created an instatiation of Scanner object in StudentRecords.java.
+              - Created a static DBController control in StudentRecords.java.
+              - Added control = new DBController(); in the main method.
