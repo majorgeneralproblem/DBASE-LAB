@@ -352,5 +352,17 @@ public class StudentRecords {
 	        }
 		} while (choice != 0);
 	}
-	
+	//--------------------EXTRA FEATURE--------------------//
+	//asks for class code and retrieves students - Henry
+	public String classStudent(){
+	System.out.print("Enter Class Code: ");
+	int code= Integer.parseInt(kb.nextLine());
+	return getClassStudent(code);
+	}
+	//asks for subjectID and retrives class Schedules -Henry
+	public String SubjectClass(){
+	System.out.print("Enter Subject Code: ");
+	int code = Integer.parseInt(kb.nextLine());
+	return getSubjClass(code);
+	}
 }
